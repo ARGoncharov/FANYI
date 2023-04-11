@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+final class FYMainViewController: UIViewController {
     
     private let textField: UITextField = {
         let textField = UITextField()
