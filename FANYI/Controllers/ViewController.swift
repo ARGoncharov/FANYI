@@ -21,12 +21,19 @@ class ViewController: UIViewController {
         textField.layer.borderWidth = 2.0
         return textField
     }()
+    
+    private let submitButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemMint
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubviews(
-            textField
+            textField,
+            submitButton
         )
         viewsConfiguration()
     }
@@ -38,9 +45,13 @@ class ViewController: UIViewController {
         
         textField.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(150)
-            make.trailing.equalToSuperview().inset(30)
-            make.leading.equalToSuperview().inset(30)
+            make.trailing.leading.equalToSuperview().inset(30)
             make.height.equalTo(50)
+        }
+        
+        submitButton.snp.makeConstraints { make in
+            make.top.equalTo(textField.snp.bottom).offset(20)
+            make.trailing.leading.equalToSuperview().inset(80)
         }
     }
 }
