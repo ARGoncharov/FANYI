@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
     
     private let textField: UITextField = {
         let textField = UITextField()
+        textField.placeholder = "Enter the text..."
         return textField
     }()
 
@@ -24,7 +26,11 @@ class ViewController: UIViewController {
     }
     
     private func viewsConfiguration() {
-        
+        textField.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(150)
+            make.trailing.equalToSuperview().inset(20)
+            make.leading.equalToSuperview().inset(20)
+        }
     }
 }
 

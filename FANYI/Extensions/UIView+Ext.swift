@@ -5,7 +5,7 @@
 //  Created by Алексей  on 09.04.2023.
 //
 
-import Foundation
+import UIKit
 
 extension UIView {
     func addSubviews(_ views: UIView...) {
