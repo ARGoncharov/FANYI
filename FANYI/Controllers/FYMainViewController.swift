@@ -34,13 +34,22 @@ final class FYMainViewController: UIViewController {
         button.layer.borderWidth = 2.0
         return button
     }()
+    
+    private let resultView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGray
+        view.layer.borderColor = UIColor.black.cgColor
+        view.layer.borderWidth = 2.0
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubviews(
             textField,
-            submitButton
+            submitButton,
+            resultView
         )
         viewsConfiguration()
     }
@@ -60,6 +69,12 @@ final class FYMainViewController: UIViewController {
             make.bottom.equalToSuperview().inset(80)
             make.trailing.leading.equalToSuperview().inset(100)
             make.height.equalTo(50)
+        }
+        
+        resultView.snp.makeConstraints { make in
+            make.top.equalTo(textField.snp.bottom).offset(15)
+            make.leading.trailing.equalToSuperview().inset(30)
+            make.height.equalTo(400)
         }
     }
 }
