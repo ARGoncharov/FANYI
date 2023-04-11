@@ -24,7 +24,14 @@ final class FYMainViewController: UIViewController {
     
     private let submitButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .systemMint
+        button.setTitle("Submit", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20)
+        button.titleLabel?.textColor = UIColor.black
+        button.backgroundColor = UIColor.lightGray
+        button.layer.cornerRadius = 25
+        button.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: .infinity)
+        button.layer.borderWidth = 2.0
         return button
     }()
 
@@ -50,8 +57,9 @@ final class FYMainViewController: UIViewController {
         }
         
         submitButton.snp.makeConstraints { make in
-            make.top.equalTo(textField.snp.bottom).offset(20)
-            make.trailing.leading.equalToSuperview().inset(80)
+            make.bottom.equalToSuperview().inset(80)
+            make.trailing.leading.equalToSuperview().inset(100)
+            make.height.equalTo(50)
         }
     }
 }
