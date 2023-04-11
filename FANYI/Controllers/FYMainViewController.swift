@@ -32,6 +32,7 @@ final class FYMainViewController: UIViewController {
         button.layer.cornerRadius = 25
         button.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: .infinity)
         button.layer.borderWidth = 2.0
+        button.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -45,7 +46,6 @@ final class FYMainViewController: UIViewController {
     
     private let resultLabel: UILabel = {
         let label = UILabel()
-        label.text = "VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.. VStack is here.."
         label.numberOfLines = 0
         return label
     }()
@@ -90,6 +90,11 @@ final class FYMainViewController: UIViewController {
             make.top.equalTo(resultView).inset(15)
             make.bottom.equalTo(resultView).inset(50)
         }
+    }
+    
+    @objc private func submitButtonTapped() {
+        guard let text = textField.text, !text.isEmpty else { return }
+        resultLabel.text = text
     }
 }
 
