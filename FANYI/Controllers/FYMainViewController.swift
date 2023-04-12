@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class FYMainViewController: UIViewController {
+final class FYMainViewController: UIViewController, UITextFieldDelegate {
     
     private let textField: UITextField = {
         let textField = UITextField()
@@ -19,6 +19,7 @@ final class FYMainViewController: UIViewController {
         textField.borderStyle = .roundedRect
         textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 2.0
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         return textField
     }()
     
@@ -53,6 +54,7 @@ final class FYMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        textField.delegate = self
         view.addSubviews(
             textField,
             submitButton,
@@ -97,5 +99,9 @@ final class FYMainViewController: UIViewController {
         resultLabel.text = text
         textField.text = ""
     }
+    
+    @objc private func textFieldDidChange() {
+        guard let text = textField.text else { return }
+        resultLabel.text = text
+    }
 }
-
