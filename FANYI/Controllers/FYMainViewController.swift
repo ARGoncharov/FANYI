@@ -32,7 +32,22 @@ final class FYMainViewController: UIViewController {
         button.layer.cornerRadius = 25
         button.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: .infinity)
         button.layer.borderWidth = 2.0
+        button.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
         return button
+    }()
+    
+    private let resultView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGray
+        view.layer.borderColor = UIColor.black.cgColor
+        view.layer.borderWidth = 2.0
+        return view
+    }()
+    
+    private let resultLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        return label
     }()
 
     override func viewDidLoad() {
@@ -40,7 +55,9 @@ final class FYMainViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubviews(
             textField,
-            submitButton
+            submitButton,
+            resultView,
+            resultLabel
         )
         viewsConfiguration()
     }
@@ -61,6 +78,24 @@ final class FYMainViewController: UIViewController {
             make.trailing.leading.equalToSuperview().inset(100)
             make.height.equalTo(50)
         }
+        
+        resultView.snp.makeConstraints { make in
+            make.top.equalTo(textField.snp.bottom).offset(15)
+            make.leading.trailing.equalToSuperview().inset(30)
+            make.height.equalTo(400)
+        }
+        
+        resultLabel.snp.makeConstraints { make in
+            make.left.right.equalTo(resultView).inset(15)
+            make.top.equalTo(resultView).inset(15)
+            make.bottom.equalTo(resultView).inset(50)
+        }
+    }
+    
+    @objc private func submitButtonTapped() {
+        guard let text = textField.text, !text.isEmpty else { return }
+        resultLabel.text = text
+        textField.text = ""
     }
 }
 
