@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A48AB7629E546C200F2E299 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A48AB7529E546C200F2E299 /* SnapKit */; };
+		8AAFADEC29E6C6AA00C63848 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAFADEB29E6C6AA00C63848 /* APIService.swift */; };
 		8AC1108729E20E8E0095C9AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1108629E20E8E0095C9AB /* AppDelegate.swift */; };
 		8AC1108929E20E8E0095C9AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1108829E20E8E0095C9AB /* SceneDelegate.swift */; };
 		8AC1108B29E20E8E0095C9AB /* FYMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1108A29E20E8E0095C9AB /* FYMainViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8AAFADEB29E6C6AA00C63848 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8AC1108329E20E8E0095C9AB /* FANYI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FANYI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC1108629E20E8E0095C9AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AC1108829E20E8E0095C9AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8AAFADE229E6AFA700C63848 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8AAFADEB29E6C6AA00C63848 /* APIService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		8AC1107A29E20E8E0095C9AB = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +68,7 @@
 		8AC1108529E20E8E0095C9AB /* FANYI */ = {
 			isa = PBXGroup;
 			children = (
+				8AAFADE229E6AFA700C63848 /* Service */,
 				8AC1109D29E212550095C9AB /* Extensions */,
 				8AC1109C29E211DC0095C9AB /* Controllers */,
 				8AC1109B29E211C00095C9AB /* Resources */,
@@ -170,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AC1109F29E212680095C9AB /* UIView+Ext.swift in Sources */,
+				8AAFADEC29E6C6AA00C63848 /* APIService.swift in Sources */,
 				8AC1108B29E20E8E0095C9AB /* FYMainViewController.swift in Sources */,
 				8AC1108729E20E8E0095C9AB /* AppDelegate.swift in Sources */,
 				8AC1108929E20E8E0095C9AB /* SceneDelegate.swift in Sources */,

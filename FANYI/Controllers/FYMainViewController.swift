@@ -7,8 +7,11 @@
 
 import UIKit
 import SnapKit
+import Foundation
 
 final class FYMainViewController: UIViewController, UITextFieldDelegate {
+    
+    let apiService = APIService.shared
     
     private let textField: UITextField = {
         let textField = UITextField()
@@ -19,7 +22,7 @@ final class FYMainViewController: UIViewController, UITextFieldDelegate {
         textField.borderStyle = .roundedRect
         textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 2.0
-        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+//        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         return textField
     }()
     
@@ -96,12 +99,16 @@ final class FYMainViewController: UIViewController, UITextFieldDelegate {
     
     @objc private func submitButtonTapped() {
         guard let text = textField.text, !text.isEmpty else { return }
-        resultLabel.text = text
+        apiService.fetch(input: text) { result in
+            DispatchQueue.main.async {
+                self.resultLabel.text = result
+            }
+        }
         textField.text = ""
     }
     
-    @objc private func textFieldDidChange() {
-        guard let text = textField.text else { return }
-        resultLabel.text = text
-    }
+//    @objc private func textFieldDidChange() {
+//        guard let text = textField.text else { return }
+//        resultLabel.text = text
+//    }
 }
