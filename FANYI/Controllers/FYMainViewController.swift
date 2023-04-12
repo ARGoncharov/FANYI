@@ -95,6 +95,7 @@ final class FYMainViewController: UIViewController {
     @objc private func submitButtonTapped() {
         guard let text = textField.text, !text.isEmpty else { return }
         resultLabel.text = text
+        textField.text = ""
     }
 }
 
